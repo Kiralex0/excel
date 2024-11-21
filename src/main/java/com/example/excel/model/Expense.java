@@ -1,4 +1,5 @@
 //package com.example.excel.model;
+//
 //import jakarta.persistence.Entity;
 //import jakarta.persistence.GeneratedValue;
 //import jakarta.persistence.GenerationType;
@@ -11,22 +12,21 @@
 //import java.math.BigDecimal;
 //import java.time.LocalDateTime;
 //
-//    @Entity
-//    @AllArgsConstructor
-//    @Getter
-//    @Setter
-//    @NoArgsConstructor
-//    public class Income {
+//@Entity
+//@AllArgsConstructor
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//public class Expense {
 //
-//        @Id
-//        @GeneratedValue(strategy = GenerationType.IDENTITY)
-//        private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 //
-//        private String userId;
-//        private BigDecimal amount;
-//        private LocalDateTime dateTime;
-//
-//    }
+//    private String userId;
+//    private BigDecimal amount;
+//    private LocalDateTime dateTime;
+//}
 
 package com.example.excel.model;
 
@@ -47,7 +47,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Income {
+public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
