@@ -6,27 +6,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
-public class Income {
+public class Point {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String userId;
-    private String userName;
-    private BigDecimal amount;
-    private String description;
-    private LocalDateTime dateTime;
+    private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "point_id")
-    private Point point;
+    @OneToMany(mappedBy = "point", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Income> incomes;
+
+    @OneToMany(mappedBy = "point", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Expense> expenses;
 }

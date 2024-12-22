@@ -1,39 +1,7 @@
-//package com.example.excel.model;
-//
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
-//import jakarta.persistence.Id;
-//import lombok.AllArgsConstructor;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
-//import lombok.Setter;
-//
-//import java.math.BigDecimal;
-//import java.time.LocalDateTime;
-//
-//@Entity
-//@AllArgsConstructor
-//@Getter
-//@Setter
-//@NoArgsConstructor
-//public class Expense {
-//
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-//
-//    private String userId;
-//    private BigDecimal amount;
-//    private LocalDateTime dateTime;
-//}
-
 package com.example.excel.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.excel.telegramm.ExcelColumn;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,8 +22,21 @@ public class Expense {
     private Long id;
 
     private String userId;
+
+    @ExcelColumn("Имя пользователя")
     private String userName;
+
+    @ExcelColumn("Сумма")
     private BigDecimal amount;
+
+    @ExcelColumn("Описание")
     private String description;
+
+    @ExcelColumn("Время")
     private LocalDateTime dateTime;
+
+    @ManyToOne
+    @JoinColumn(name = "point_id")
+    private Point point;
+
 }
