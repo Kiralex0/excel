@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
 @AllArgsConstructor
 @Getter
@@ -22,9 +23,11 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password; // Пароль пользователя
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role; // Роль пользователя
+
+//    если появятся роли раскоментировать
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "role", nullable = false)
+//    private Role role;
 
     public User() {
     }
@@ -33,4 +36,12 @@ public class User {
         this.telegramUserId = telegramUserId;
         this.password = password;
     }
+
+//    если появятся роли раскоментировать, а верхнее закоментировать
+//    public User(Long telegramUserId, String password, Role role) {
+//        this.telegramUserId = telegramUserId;
+//        this.password = password;
+//        this.role = role;
+//    }
+
 }

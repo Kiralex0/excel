@@ -25,7 +25,7 @@ public class DailySummaryService {
     @Autowired
     private TelegramBot telegramBot;
 
-    @Scheduled(cron = "0 18 00 * * ?") // Запускать каждый день в 23:00 (c м ч)
+    @Scheduled(cron = "0 59 23 * * ?") // Запускать каждый день в 23:00 (c м ч)
     public void sendDailySummary() {
         LocalDate today = LocalDate.now();
         List<Point> points = pointService.getAllPoints();

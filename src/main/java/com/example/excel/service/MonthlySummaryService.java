@@ -29,7 +29,7 @@ public class MonthlySummaryService {
     @Autowired
     private TelegramBot telegramBot;
 
-    @Scheduled(cron = "0 30 00 2 * ?") // Запускать в последний день каждого месяца в 23:00
+    @Scheduled(cron = "0 0 23 L * ?") // Запускать в последний день каждого месяца в 23:00
     public void sendMonthlySummary() {
         LocalDate lastDayOfMonth = LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth());
         List<Point> points = pointService.getAllPoints();

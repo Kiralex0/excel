@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>excel</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>excel</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -148,5 +148,56 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<!-- Профиль для разработки (dev) -->
+		<profile>
+			<id>dev</id>
+			<properties>
+				<spring.profiles.active>dev</spring.profiles.active>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources/dev</directory>
+						<includes>
+							<include>application-dev.properties</include> <!-- Указываем точное название файла -->
+						</includes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+	<!-- Профиль для production (prod) -->
+	<profile>
+		<id>prod</id>
+		<properties>
+			<spring.profiles.active>prod</spring.profiles.active>
+			<skipTests>true</skipTests> <!-- Пропуск тестов -->
+		</properties>
+		<build>
+			<resources>
+				<resource>
+					<directory>src/main/resources/prod</directory>
+				</resource>
+			</resources>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<excludes>
+							<exclude>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+							</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+	</profiles>
+
 
 </project>
